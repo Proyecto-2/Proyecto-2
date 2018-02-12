@@ -8,7 +8,9 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const flash = require("connect-flash");
 const passportConfig = require('./passport');
+const LocalStrategy = require("passport-local").Strategy;
 
 
 mongoose.connect("mongodb://localhost/project2").then(() => console.log("Conectado"));
@@ -42,6 +44,13 @@ app.use(session({
   })
 }));
 passportConfig(app);
+
+app.use(flash());
+
+app.use((req, res, next)=>{
+  res.locals.messages = req.flash('info');
+  next();
+})
 
 app.use('/', index);
 app.use('/users', users);

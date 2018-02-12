@@ -15,8 +15,8 @@ authRoutes.post("/signup", (req, res, next) => {
   const mail = req.body.mail;
   const name = req.body.name;
 
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (username === "" || password === "" || mail === "" || name === "") {
+    res.render("auth/signup", { message: "Rellene todos los campos" });
     return;
   }
 
@@ -25,6 +25,7 @@ authRoutes.post("/signup", (req, res, next) => {
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
+
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
@@ -47,14 +48,37 @@ authRoutes.post("/signup", (req, res, next) => {
 });
 
 
+
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
-authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login"
-}));
+authRoutes.post("/login",  (req, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
+  
+    if (username === "" || password === "") {
+      res.render("auth/login", { message: "Campos vacios" });
+      return;
+    }
+
+    // passport.use(new LocalStrategy((username, password, next) => {
+    //     User.findOne({ username }, (err, user) => {
+    //       if (err) {
+    //         return next(err);
+    //       }
+    //       if (!user) {
+    //         return next(null, false, { message: "Incorrect username" });
+    //       }
+    //       if (!bcrypt.compareSync(password, user.password)) {
+    //         return next(null, false, { message: "Incorrect password" });
+    //       }
+      
+    //       return next(null, user);
+    //     });
+    //   }));
+
+});
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();

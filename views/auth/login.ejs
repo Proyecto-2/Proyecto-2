@@ -9,6 +9,9 @@
     <input type="text" name="username" placeholder="Usuario">
     <label for="password">Password</label>
     <input type="password" name="password" placeholder="Contraseña">
+    <% if (typeof message !== "undefined") { %>
+        <div class="error-message"><%= message %></div>
+      <% } %>
    <button>Log In</button>
 
     <p class="account-message">
