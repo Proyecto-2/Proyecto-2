@@ -50,6 +50,11 @@ nav ul.navbar-nav li{
   z-index: 9;
 }
 
+section{
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
 section#home{
   width: 100vw;
   height: 60vh;
@@ -71,14 +76,24 @@ section#home div#cont h1{
   font-size: 30px;
 }
 
-section#home div#cont a{
-  
-}
-
 footer ul{
   padding-left: 0;
 }
 
 footer ul li{
   display: inline-block;
+}
+
+section#personalizado div#mockup{
+  position: relative;
+}
+
+section#personalizado div#mockup div#img-up{
+  position: absolute;
+  top: 70px;
+  left: 115px;
+}
+
+section#personalizado div#mockup div#img-up img{
+  width: 100px;
 }

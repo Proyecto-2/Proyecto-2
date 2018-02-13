@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Auth = require("../models/User");
 const Prod = require("../models/Product");
+const Create = require("../models/Create");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -28,8 +29,16 @@ const prod = [
     }
 ]
 
+const creat = [
+    {
+        url_img: "https://misanimales.com/wp-content/uploads/2016/10/crecen-los-gatos.jpg", 
+        texto: "Esto es una prueba"
+    }
+]
+
 Auth.collection.drop();
 Prod.collection.drop();
+Create.collection.drop();
 
 
 
@@ -50,6 +59,16 @@ prod.forEach(c => {
             throw err;
         }
         console.log(`Product saved ${prod.texto}`);
+    })
+});
+
+prod.forEach(c => {
+    let cr = new Create(c);
+    cr.save((err, creat) => {
+        if (err) {
+            throw err;
+        }
+        console.log(`Created ${creat.texto}`);
         mongoose.disconnect();
     })
 });

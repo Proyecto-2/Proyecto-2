@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
+const Create = require('../models/Create');
 
 const multer = require('multer');
 const upload = multer({ dest: __dirname + '/../uploads' });
@@ -17,25 +18,22 @@ router.get('/generico', function (req, res, next) {
 // Personalizado
 
 router.get('/personalizado', function (req, res, next) {
-  res.render('personalizado', { title: 'Personalizando' });
+  res.render('personalizado', { object: undefined, title: 'Personalizando' });
 });
 
-router.post("/personalizado", upload.single('image'), (req, res, next) => {
-  const url_img = req.body.url_img;
+router.post("/personalizado", upload.single('url_img'), (req, res) => {
+
+  const url_img = req.file.filename;
   const texto = req.body.texto;
-  
-  const newProd = new Product({
+
+  const newProd = new Create({
     url_img,
-    texto
+    texto,
   });
 
-  newProd.save((err) => {
-    if (err) {
-      res.render("personalizado", { message: "Something went wrong" });
-    } else {
-      res.redirect("personalizado");
-    }
-  });
+  newProd.save().then(object => {
+    res.render('personalizado', { object: object, title: 'Personalizado' })
+  })
 });
 
 
