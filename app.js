@@ -18,6 +18,7 @@ mongoose.connect("mongodb://localhost/project2").then(() => console.log("Conecta
 const index = require('./routes/index');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const pages = require('./routes/pages');
 
 const app = express();
 
@@ -54,7 +55,11 @@ app.use((req, res, next)=>{
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/auth', auth);
+app.use('/', auth);
+
+//Al poner /tipo > pages indicamos que al poner la barra, vaya a pages.js
+//De ahí, se va distribuyendo al resto de webs
+app.use('/', pages);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
