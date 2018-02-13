@@ -1,1 +1,37 @@
 <h1>Personalizado</h1>
+
+<section id="personalizado" class="container">
+    <div class="row">
+        <div id="mockup" class="col-md-6">
+            <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2014/t-shirt-templates/7.jpg" alt="" width="300">
+            <button type="submit" class="btn btn-default">Guardar</button>
+        </div>
+        <div id="create-comp" class="col-md-6">
+            <form action="/personalizado" method="POST">
+                <div class="form-group">
+                    <label for="">1. Selecciona tu foto (500x500 px)</label>
+                    <input type="file" name="url_img">
+                </div>
+                <div class="form-group">
+                    <label for="">2. Escribe el texto (Max. 140 caracteres)</label>
+                    <textarea name="texto" id="" cols="30" rows="10"></textarea>
+                </div>
+                <label>3. Tipo de producto</label>
+                <select class="form-control">
+                        <option>Rock</option>
+                        <option>Metal</option>
+                        <option>Pop</option>
+                </select>
+                <label> 4. Pulsa el botón guardar</label>
+                <div class="añadir form-group">
+                    <label> 5. Añade la cantidad</label>
+                    <span>-</span>
+                    <input type="text" value=0 name="anadir-pro">
+                    <span>+</span>
+                </div>
+                <button type="submit" class="btn btn-default">Guardar</button>
+            </form>
+            <button type="submit" class="btn btn-default">Añadir al carrito</button>
+        </div>
+    </div>
+</section>

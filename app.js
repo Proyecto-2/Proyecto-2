@@ -57,6 +57,10 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/', auth);
 
+//Al poner /tipo > pages indicamos que al poner la barra, vaya a pages.js
+//De ahí, se va distribuyendo al resto de webs
+app.use('/', pages);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

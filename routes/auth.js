@@ -47,20 +47,32 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
-
-
 authRoutes.get("/login", (req, res, next) => {
-  res.render("auth/login");
+  res.render("auth/login", { "message": req.flash("error") });
 });
 
-authRoutes.post("/login",  (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
+authRoutes.post("/login", passport.authenticate("local", {
+  successRedirect: "/tipo",
+  failureRedirect: "/login"
+}));
+
+
+
+// authRoutes.get("/login", (req, res, next) => {
+//   res.render("auth/login");
+// });
+
+// authRoutes.post("/login",  (req, res, next) => {
+//     const username = req.body.username;
+//     const password = req.body.password;
   
-    if (username === "" || password === "") {
-      res.render("auth/login", { message: "Campos vacios" });
-      return;
-    }
+//     if (username === "" || password === "") {
+//       res.render("auth/login", { message: "Campos vacios" });
+//       return;
+//     }
+
+//     res.redirect("/tipo");
+
 
     // passport.use(new LocalStrategy((username, password, next) => {
     //     User.findOne({ username }, (err, user) => {
@@ -78,7 +90,7 @@ authRoutes.post("/login",  (req, res, next) => {
     //     });
     //   }));
 
-});
+// });
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();
