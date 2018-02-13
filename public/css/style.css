@@ -14,11 +14,35 @@ nav{
   border-radius: 0!important;
 }
 
-nav ul li a{
+nav ul.navbar-right{
+  margin-top: 25px;
+}
+
+nav ul.navbar-right li span#cart{
+  margin-left: 20px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav ul.navbar-right li span#cart i{
+  font-size: 20px;
+}
+
+nav ul.navbar-right li:hover{
+  border-bottom: 3px solid #00c2cc;
+}
+
+.nav>li>a:focus, .nav>li>a:hover{
+  background: #fff!important;
+  color: #00c2cc;
+}
+
+nav ul.navbar-right li a{
   font-family: 'Oswald', sans-serif!important;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: #585858;
 
 }
 
