@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'chunkfiveroman';
+  src: url('../fonts/chunkfive-webfont.woff2') format('woff2'),
+       url('../fonts/chunkfive-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'maven_proregular';
+  src: url('../fonts/mavenpro-regular-webfont.woff2') format('woff2'),
+       url('../fonts/mavenpro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'maven_probold';
+  src: url('../fonts/mavenpro-bold-webfont.woff2') format('woff2'),
+       url('../fonts/mavenpro-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -6,6 +32,7 @@ body {
 *{
   font-family: 'Open Sans', sans-serif;
 }
+
 
 /* section{
   padding-top: 70px;
@@ -16,9 +43,12 @@ body {
 
 nav{
   height: 100px;
-  border-bottom: 1px solid rgba(0, 0, 0, .2)!important;
   margin-bottom: 0!important;
   border-radius: 0!important;
+}
+
+nav div.container{
+  padding: 0!important;
 }
 
 nav ul.navbar-right{
@@ -35,18 +65,16 @@ nav ul.navbar-right li span#cart i{
   font-size: 20px;
 }
 
-nav ul.navbar-right li:hover{
-  border-bottom: 3px solid #24b0ca;
-}
-
 .nav>li>a:focus, .nav>li>a:hover{
   background: #fff!important;
   color: #24b0ca;
 }
 
 nav ul.navbar-right li a{
-  font-family: 'Oswald', sans-serif!important;
-  font-size: 16px;
+  /* font-family: 'Oswald', sans-serif!important; */
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: #585858;
@@ -73,24 +101,34 @@ footer ul{
 /* HOME */
 
 section#home{
-  width: 100vw;
-  height: 60vh;
-  background: url("http://via.placeholder.com/1500x1500")center center no-repeat;
+  height: 80vh;
+  background: url("../bg.png")center center no-repeat;
   background-size: cover;
   position: relative;
+  margin-top: 20px;
 }
 
 section#home div#cont{
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  top: 100px;
   text-align: center;
 }
 
 section#home div#cont h1{
-  font-family: 'Courgette', cursive;
-  font-size: 30px;
+  font-family: 'chunkfiveroman';
+  font-size: 60px;
+  text-align-last: left;
+  color: #44b6ea;
+  line-height: 53px;
+}
+
+section#home div#cont h1 span{
+  font-family: 'chunkfiveroman';
+  font-size: 60px;
+  display: block;
+  color: #343435;
+
 }
 
 /* HOME */
