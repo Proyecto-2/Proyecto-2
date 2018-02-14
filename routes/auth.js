@@ -56,42 +56,6 @@ authRoutes.post("/login", passport.authenticate("local", {
   failureRedirect: "/login"
 }));
 
-
-
-// authRoutes.get("/login", (req, res, next) => {
-//   res.render("auth/login");
-// });
-
-// authRoutes.post("/login",  (req, res, next) => {
-//     const username = req.body.username;
-//     const password = req.body.password;
-  
-//     if (username === "" || password === "") {
-//       res.render("auth/login", { message: "Campos vacios" });
-//       return;
-//     }
-
-//     res.redirect("/tipo");
-
-
-    // passport.use(new LocalStrategy((username, password, next) => {
-    //     User.findOne({ username }, (err, user) => {
-    //       if (err) {
-    //         return next(err);
-    //       }
-    //       if (!user) {
-    //         return next(null, false, { message: "Incorrect username" });
-    //       }
-    //       if (!bcrypt.compareSync(password, user.password)) {
-    //         return next(null, false, { message: "Incorrect password" });
-    //       }
-      
-    //       return next(null, user);
-    //     });
-    //   }));
-
-// });
-
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
