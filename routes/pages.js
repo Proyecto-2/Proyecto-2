@@ -6,8 +6,19 @@ const Create = require('../models/Create');
 const multer = require('multer');
 const upload = multer({ dest: __dirname + '/../uploads' });
 
+const ensureLoggedIn = (redirect_url) => {
+  return (req, res, next) => {
+    if (req.user) {
+      next()
+    } else {
+      res.redirect(redirect_url)
+    }
+  }
+}
+
+
 /* GET home page. */
-router.get('/tipo', (req, res) => {
+router.get('/tipo', ensureLoggedIn('/login'), (req, res) => {
   res.render('tipo', { title: 'Tipo' });
 });
 
@@ -17,11 +28,11 @@ router.get('/generico', function (req, res, next) {
 
 // Personalizado
 
-router.get('/personalizado', function (req, res, next) {
+router.get('/personalizado', ensureLoggedIn('/login'), function (req, res, next) {
   res.render('personalizado', { object: undefined, title: 'Personalizando' });
 });
 
-router.post("/personalizado", upload.single('url_img'), (req, res) => {
+router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img')], (req, res) => {
 
   const url_img = req.file.filename;
   const texto = req.body.texto;
@@ -29,11 +40,11 @@ router.post("/personalizado", upload.single('url_img'), (req, res) => {
   const newProd = new Create({
     url_img,
     texto,
-  });  
+  });
   res.render('personalizado', { object: newProd, title: 'Personalizado' })
 })
 
-router.post("/cart", (req, res) => {
+router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
 
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
@@ -57,11 +68,11 @@ router.post("/cart", (req, res) => {
 
   newProd.save((err) => {
     if (err) {
-        res.render("personalizado", {
-            errorMessage: "Something went wrong when signing up"
-        });
+      res.render("personalizado", {
+        errorMessage: "Something went wrong when signing up"
+      });
     } else {
-        res.redirect("/cart");
+      res.redirect("/cart");
     }
   })
 })
@@ -71,7 +82,7 @@ router.post("/cart", (req, res) => {
 
 // Carrito
 
-router.get('/cart', function (req, res, next) {
+router.get('/cart', ensureLoggedIn('/login'), function (req, res, next) {
   res.render('cart', { object: undefined, title: 'cart' });
 });
 
