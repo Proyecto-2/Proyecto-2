@@ -31,6 +31,7 @@ body {
 
 *{
   font-family: 'Open Sans', sans-serif;
+  text-decoration: none!important;
 }
 
 
@@ -52,7 +53,7 @@ nav div.container{
 }
 
 nav ul.navbar-right{
-  margin-top: 25px;
+  margin-top: 35px;
 }
 
 nav ul.navbar-right li span#cart{
@@ -88,12 +89,16 @@ nav ul.navbar-nav li{
 
 /* FOOTER */
 
-footer ul li{
-  display: inline-block;
+footer{
+  text-align: center;
+  padding: 20px 0;  
 }
 
-footer ul{
-  padding-left: 0;
+footer h3{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #a2a2a2;
 }
 
 /* FOOTER */
@@ -111,24 +116,47 @@ section#home{
 section#home div#cont{
   position: absolute;
   left: 50%;
-  top: 100px;
+  top: 85px;
   text-align: center;
+  text-align: left;
+  width: 355px;
 }
 
 section#home div#cont h1{
   font-family: 'chunkfiveroman';
-  font-size: 60px;
-  text-align-last: left;
+  font-size: 70px;
   color: #44b6ea;
-  line-height: 53px;
+  line-height: 63px;
 }
 
 section#home div#cont h1 span{
   font-family: 'chunkfiveroman';
-  font-size: 60px;
+  font-size: 70px;
   display: block;
   color: #343435;
+}
 
+section#home div#cont p{
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+section#home div#cont p span{
+  font-family: 'maven_probold';
+  font-size: 21px;
+}
+
+section#home div#cont a{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
 /* HOME */
