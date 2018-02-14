@@ -17,22 +17,30 @@
                 </div>
                 <div class="form-group">
                     <label for="">2. Escribe el texto (Max. 140 caracteres)</label>
-                    <textarea name="texto" id="" cols="30" rows="10"></textarea>
+                    <textarea name="texto"><% if (typeof(object) != 'undefined') {%><%= object.texto %>
+                    <% } %></textarea>
                 </div>
-                <label>3. Tipo de producto</label>
-                <select class="form-control" name="tipo">
-                    <option>Rock</option>
-                    <option>Metal</option>
-                    <option>Pop</option>
-                </select>
-                <label> 4. Pulsa el botón guardar</label>
+                <div class="form-group">
+                    <label> 3. Pulsa el botón guardar</label>
+                    <button type="submit" class="btn">Guardar</button>
+                </div>
+            </form>
+            <form action="/cart" method="POST">
+                <div class="form-group">
+                    <label>4. Tipo de producto</label>
+                    <select class="form-control" name="tipo">
+                        <option>Rock</option>
+                        <option>Metal</option>
+                        <option>Pop</option>
+                    </select>
+                </div>
                 <div class="añadir form-group">
                     <label> 5. Añade la cantidad</label>
-                    <input type="number" value=0 name="anadir-pro">
+                    <input type="number" value=0 name="cantidad">
                 </div>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <input type="text" name="all" value="<%= object %>" hidden>
+                <button type="submit" class="btn">Añadir al carrito</button>
             </form>
-            <button type="submit" class="btn btn-default">Añadir al carrito</button>
         </div>
     </div>
 </section>

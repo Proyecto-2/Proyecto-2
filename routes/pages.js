@@ -30,12 +30,40 @@ router.post("/personalizado", upload.single('url_img'), (req, res) => {
     url_img,
     texto,
   });
+    res.render('personalizado', { object: newProd, title: 'Personalizado' })
+})
 
-  newProd.save().then(object => {
-    res.render('personalizado', { object: object, title: 'Personalizado' })
+router.post("/cart", (req, res) => {
+
+  const tipo = req.body.tipo;
+  const cantidad = req.body.cantidad;
+  const all = req.body.all;
+
+  const newProd = new Create({
+    tipo,
+    cantidad,
+    all
+  });
+
+  newProd.save((err) => {
+    if (err) {
+        res.render("personalizado", {
+            errorMessage: "Something went wrong when signing up"
+        });
+    } else {
+        res.redirect("/cart");
+    }
   })
-});
+})
 
+
+
+
+// Carrito
+
+router.get('/cart', function (req, res, next) {
+  res.render('cart', { object: undefined, title: 'cart' });
+});
 
 
 

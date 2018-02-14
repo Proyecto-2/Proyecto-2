@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const createSchema = new Schema({
     url_img: String,
-    texto: String
+    texto: String,
+    tipo: String,
+    cantidad: Number
 }, {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
     });
