@@ -5,7 +5,9 @@ const createSchema = new Schema({
     url_img: String,
     texto: String,
     tipo: String,
-    cantidad: Number
+    cantidad: Number,
+    url_img_saved: String,
+    texto_saved: String   
 }, {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
     });

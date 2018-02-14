@@ -38,7 +38,8 @@
                     <label> 5. Añade la cantidad</label>
                     <input type="number" value=0 name="cantidad">
                 </div>
-                <input type="text" name="all" value="<%= object %>" hidden>
+
+                <input type="text" name="all" value="<%= JSON.stringify(object) %>" hidden>
                 <button type="submit" class="btn">Añadir al carrito</button>
             </form>
         </div>

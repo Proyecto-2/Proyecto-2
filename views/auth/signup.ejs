@@ -2,13 +2,13 @@
 
 <form action="/signup" method="POST" id="form-container" class="signup">
     <label for="nombre">Nombre</label>
-    <input type="text" name="name" placeholder="Nombre y Apellidos">
+    <input type="text" name="name" placeholder="Nombre y Apellidos" required>
     <label for="mail">Mail</label>
-    <input type="text" name="mail" placeholder="Correo">
+    <input type="email" name="mail" placeholder="Correo" required>
     <label for="username">Usuario</label>
-    <input type="text" name="username" placeholder="Usuario">
+    <input type="text" name="username" placeholder="Usuario" required>
     <label for="password">Password</label>
-    <input type="password" name="password" placeholder="Contraseña">
+    <input type="password" name="password" placeholder="Contraseña" required>
     <button>Sign up</button>
 </form>
 

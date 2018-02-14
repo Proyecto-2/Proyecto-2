@@ -6,9 +6,9 @@
 
 <form action="/login" method="POST" id="form-container" class="login">
     <label for="username">Username</label>
-    <input type="text" name="username" placeholder="Usuario">
+    <input type="text" name="username" placeholder="Usuario" required>
     <label for="password">Password</label>
-    <input type="password" name="password" placeholder="Contraseña">
+    <input type="password" name="password" placeholder="Contraseña" required>
     <% if (typeof message !== "undefined") { %>
         <div class="error-message"><%= message %></div>
       <% } %>
