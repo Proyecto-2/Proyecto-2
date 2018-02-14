@@ -68,7 +68,7 @@ nav ul.navbar-right li span#cart i{
 
 .nav>li>a:focus, .nav>li>a:hover{
   background: #fff!important;
-  color: #24b0ca;
+  color: #44b6eb;
 }
 
 nav ul.navbar-right li a{
@@ -201,8 +201,79 @@ section#personalizado div#create-comp textarea{
   border-radius: 4px;
 }
 
-section#personalizado div#create-comp select.form-control{
-  
+/* PERSONALIZADO */
+
+/* LOGIN */
+
+section#login{
+  margin-top: 20px;
 }
 
-/* PERSONALIZADO */
+section#login div#form-login{
+  padding: 0!important;
+  text-align: center;
+}
+
+section#login div#form-login h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+section#login div#form-login h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#login div#form-login div.form-group{
+  padding-right: 30px;
+  padding-left: 0;
+}
+
+section#login div#form-login input{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  padding: 20px;
+}
+
+section#login div#form-login button{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+section#login div#form-login p{
+  margin-right: 30px;
+}
+
+section#login div#form-login p a{
+  color: #44b6eb;
+}
+
+section#login div#img-login{
+  background: url("../bg-log.png") center center no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+
+/* LOGIN */
