@@ -1,0 +1,14 @@
+<ul>
+    <%= let total=0;%>
+    <% Sell.forEach((Sell) => { %>
+        <li>
+            <%= sell.texto %> - $
+                <%= sell.cantidad %> -
+                    <%= sell.precio %>
+                        <% 
+          </li>
+        <%  }) %>
+</ul>
+<h1>Total:
+    <% total+=(sell.cantidad*sell.precio);%>
+</h1>

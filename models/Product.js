@@ -7,9 +7,7 @@ const productSchema = new Schema({
         ref: "User"
     },
     url_img: String,
-    tipo: { type: String,
-    enum: ['deportes', 'hola']
-    },
+    tipo: { type: String, enum: ["Metal", "Pop", "Rock"]},
     precio: Number,
     texto: String
 }, {

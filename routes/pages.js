@@ -1,17 +1,20 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const Product = require('../models/Product');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/project2');
 
 /* GET home page. */
-router.get('/tipo',(req,res) => {
-  res.render('tipo', { title: 'Tipo' });
+router.get('/tipo', (req, res) => {
+    res.render('tipo', { title: 'Tipo' });
 });
 
-router.get('/generico', function(req, res, next) {
-    res.render('generico', { title: 'Genericos' });
-  });
+    router.get('/generico', (req, res, next) => {
+        
+        Product.find({},(err, prod) => {
+            let img;            
+            console.log(prod);
+            res.render('generico', {text : prod.texto, img : prod.url_img});})
+        });
 
-  router.get('/personalizado', function(req, res, next) {
-    res.render('personalizado', { title: 'Personalizando' });
-  });
-
-module.exports = router;
+    module.exports = router;

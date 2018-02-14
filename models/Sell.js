@@ -2,14 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const sellSchema = new Schema({
-    product_id: {
-        type: Schema.Types.ObjectId,
-        ref: "Product"
-    },
-    buyer_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }
+    texto: String,
+    cantidad: { type: number, default: 1 },
+    precio: number
 }, {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
     });

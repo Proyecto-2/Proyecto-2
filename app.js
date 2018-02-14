@@ -13,7 +13,7 @@ const passportConfig = require('./passport');
 const LocalStrategy = require("passport-local").Strategy;
 
 
-mongoose.connect("mongodb://localhost/project2").then(() => console.log("Conectado"));
+mongoose.connect("mongodb://localhost:27017/project2").then(() => console.log("Conectado"));
 
 const index = require('./routes/index');
 const users = require('./routes/users');
