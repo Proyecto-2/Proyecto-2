@@ -1,1 +1,8 @@
-<h1>hola</h1>
+<% products.forEach((products) => { %>
+    <div class="col-md-4">
+            <a href="previsualizacion"><img src="<%=products.url_img%>" alt="<%=products.url_img%>"></a>
+        <a href="previsualizacion">
+            <%=products.texto%>
+        </a>
+    </div>
+    <%  }) %>

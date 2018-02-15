@@ -9,12 +9,21 @@ router.get('/tipo', (req, res) => {
     res.render('tipo', { title: 'Tipo' });
 });
 
-    router.get('/generico', (req, res, next) => {
-        
-        Product.find({},(err, prod) => {
-            let img;            
-            console.log(prod);
-            res.render('generico', {text : prod.texto, img : prod.url_img});})
-        });
+router.get('/generico', (req, res, next) => {
 
-    module.exports = router;
+    Product.find({}, (err, products) => {
+        res.render('generico', { products: products });
+    })
+});
+
+router.post('/:id', (req, res, next) => {
+    const productId = req.params.id;
+  });
+
+router.get('/previsualizacion', (req, res, next) => {
+    Product.find({}, (err, products) => {
+        res.render('previsualizacion', { products: products });
+    })
+});
+
+module.exports = router;
