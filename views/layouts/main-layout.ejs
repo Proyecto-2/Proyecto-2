@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PROYECTO</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,19 +21,25 @@
                     aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="http://via.placeholder.com/150x80" alt="Logo"></a>
+                <a class="navbar-brand" href="/"><img src="/logo.pn" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/tipo">Shop</a>
+                        <a href="#">Shop</a>
                     </li>
-                    <li>
-                        <a href="/login">Login</a>
-                    </li>
-                    <li>
-                        <a href="/signup">Signup</a>
-                    </li>
+                    <% if(!user) { %>
+                        <li>
+                            <a href="/login">Login</a>
+                        </li>
+                        <li>
+                            <a href="/signup">Signup</a>
+                        </li>
+                    <% }else { %>
+                        <li>
+                            <a href="/logout">Logout</a>
+                        </li>
+                        <% } %>
                     <li>
                         <span id="cart">
                             <span class"cart-total">0</span>
@@ -44,15 +51,8 @@
         </div>
     </nav>
     <%- body %>
-    <footer class="container-fluid">
-        <div class="container">
-            <ul>
-                <li>Link</li>
-                <li>Link</li>
-                <li>Link</li>
-                <li>Link</li>
-            </ul>
-        </div>
+    <footer class="container">
+        <h3>S © Copyright | Todos los derechos </h3>
     </footer>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

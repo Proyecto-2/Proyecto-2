@@ -47,45 +47,14 @@ authRoutes.post("/signup", (req, res, next) => {
     });
 });
 
-
-
 authRoutes.get("/login", (req, res, next) => {
-
-    res.render("auth/login", { "message": req.flash("Conectado correctamente") });
+  res.render("auth/login", { "message": req.flash("error") });
 });
 
-authRoutes.post("/login", (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    if (username === "" || password === "") {
-        res.render("auth/login");
-        return;
-    }
-
-    authRoutes.post("/login", passport.authenticate("local", {
-        successRedirect: "/tipo",
-        failureRedirect: "/login"
-
-    }));
-
-    // passport.use(new LocalStrategy((username, password, next) => {
-    //     User.findOne({ username }, (err, user) => {
-    //       if (err) {
-    //         return next(err);
-    //       }
-    //       if (!user) {
-    //         return next(null, false, { message: "Incorrect username" });
-    //       }
-    //       if (!bcrypt.compareSync(password, user.password)) {
-    //         return next(null, false, { message: "Incorrect password" });
-    //       }
-
-    //       return next(null, user);
-    //     });
-    //   }));
-
-});
+authRoutes.post("/login", passport.authenticate("local", {
+  successRedirect: "/tipo",
+  failureRedirect: "/login"
+}));
 
 authRoutes.get("/logout", (req, res) => {
     req.logout();

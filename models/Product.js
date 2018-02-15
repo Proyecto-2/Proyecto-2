@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-    seller_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    },
+    name: String,
     url_img: String,
-    tipo: { type: String, enum: ["Metal", "Pop", "Rock"]},
+    tipo: { type: String,
+        enum: ['Rock', 'Metal', 'Pop']
+    },
     precio: Number,
     texto: String
 }, {

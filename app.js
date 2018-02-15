@@ -35,6 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
@@ -49,6 +50,7 @@ passportConfig(app);
 app.use(flash());
 
 app.use((req, res, next)=>{
+  res.locals.user = req.user;
   res.locals.messages = req.flash('info');
   next();
 })

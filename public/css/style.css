@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'chunkfiveroman';
+  src: url('../fonts/chunkfive-webfont.woff2') format('woff2'),
+       url('../fonts/chunkfive-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'maven_proregular';
+  src: url('../fonts/mavenpro-regular-webfont.woff2') format('woff2'),
+       url('../fonts/mavenpro-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'maven_probold';
+  src: url('../fonts/mavenpro-bold-webfont.woff2') format('woff2'),
+       url('../fonts/mavenpro-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -5,17 +31,29 @@ body {
 
 *{
   font-family: 'Open Sans', sans-serif;
+  text-decoration: none!important;
 }
+
+
+/* section{
+  padding-top: 70px;
+  padding-bottom: 70px;
+} */
+
+/* BARRA NAVEGACION */
 
 nav{
   height: 100px;
-  border-bottom: 1px solid rgba(0, 0, 0, .2)!important;
   margin-bottom: 0!important;
   border-radius: 0!important;
 }
 
+nav div.container{
+  padding: 0!important;
+}
+
 nav ul.navbar-right{
-  margin-top: 25px;
+  margin-top: 35px;
 }
 
 nav ul.navbar-right li span#cart{
@@ -28,61 +66,279 @@ nav ul.navbar-right li span#cart i{
   font-size: 20px;
 }
 
-nav ul.navbar-right li:hover{
-  border-bottom: 3px solid #00c2cc;
-}
-
 .nav>li>a:focus, .nav>li>a:hover{
   background: #fff!important;
-  color: #00c2cc;
+  color: #44b6eb;
 }
 
 nav ul.navbar-right li a{
-  font-family: 'Oswald', sans-serif!important;
-  font-size: 16px;
+  /* font-family: 'Oswald', sans-serif!important; */
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: #585858;
-
 }
 
 nav ul.navbar-nav li{
   z-index: 9;
 }
 
+/* BARRA NAVEGACION */
+
+/* FOOTER */
+
+footer{
+  text-align: center;
+  padding: 20px 0;  
+}
+
+footer h3{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #a2a2a2;
+}
+
+/* FOOTER */
+
+/* HOME */
+
 section#home{
-  width: 100vw;
-  height: 60vh;
-  background: url("http://via.placeholder.com/1500x1500")center center no-repeat;
+  height: 80vh;
+  background: url("../bg.pn")center center no-repeat;
   background-size: cover;
   position: relative;
+  margin-top: 20px;
 }
 
 section#home div#cont{
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  top: 85px;
   text-align: center;
+  text-align: left;
+  width: 355px;
 }
 
 section#home div#cont h1{
-  font-family: 'Courgette', cursive;
-  font-size: 30px;
+  font-family: 'chunkfiveroman';
+  font-size: 70px;
+  color: #44b6ea;
+  line-height: 63px;
+}
+
+section#home div#cont h1 span{
+  font-family: 'chunkfiveroman';
+  font-size: 70px;
+  display: block;
+  color: #343435;
+}
+
+section#home div#cont p{
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+section#home div#cont p span{
+  font-family: 'maven_probold';
+  font-size: 21px;
 }
 
 section#home div#cont a{
-  
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
-footer ul{
+/* HOME */
+
+/* PERSONALIZADO */
+
+section#personalizado div#mockup{
+  position: relative;
+  background: #dcdcdc;
+}
+
+section#personalizado div#mockup div#img-up{
+  position: absolute;
+  top: 70px;
+  left: 115px;
+}
+
+section#personalizado div#mockup div#img-up img{
+  width: 100px;
+}
+
+section#personalizado div#create-comp div.form-group{
+  margin-bottom: 0;
+}
+
+section#personalizado div#create-comp label{
+  font-weight: lighter;
+  letter-spacing: 1.5px;
+  color: #24b0ca;
+  margin-bottom: 25px;
+}
+
+section#personalizado div#create-comp input[type="file"]{
+  margin-bottom: 30px;
+  font-size: 12px;
+}
+
+section#personalizado div#create-comp textarea{
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+
+/* PERSONALIZADO */
+
+/* LOGIN */
+
+section#login{
+  margin-top: 20px;
+}
+
+section#login div#form-login{
+  padding: 0!important;
+  text-align: center;
+}
+
+section#login div#form-login h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+section#login div#form-login h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#login div#form-login div.form-group{
+  padding-right: 30px;
   padding-left: 0;
 }
 
-footer ul li{
-  display: inline-block;
+section#login div#form-login input{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  padding: 20px;
 }
 
-.catalogo{
-  padding: 5%;
+section#login div#form-login button{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
+
+section#login div#form-login p{
+  margin-right: 30px;
+}
+
+section#login div#form-login p a{
+  color: #44b6eb;
+}
+
+section#login div#img-login{
+  background: url("../bg-log.pn") center center no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+/* LOGIN */
+
+/* SIGNUP */
+
+section#sign{
+  margin-top: 20px;
+}
+
+section#sign div#form-sign{
+  padding: 0!important;
+  text-align: center;
+}
+
+section#sign div#form-sign h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+section#sign div#form-sign h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#sign div#form-sign div.form-group{
+  padding-right: 30px;
+  padding-left: 0;
+}
+
+section#sign div#form-sign input{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  padding: 20px;
+}
+
+section#sign div#form-sign button{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+section#sign div#img-sign{
+  background: url("../bg-sign.pn") center center no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+/* SIGNUP */
