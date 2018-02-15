@@ -1,1 +1,31 @@
-<h1><%= cart.products[0].tipo %></h1>
+<section id="cart" class="container">
+    <div class="row">
+        <h1>Cart</h1>
+        
+        <table class="table">
+            <tr>
+                <th class="th-pro" colspan="2">Producto</th>
+                <th>Texto</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td class="mt"><i class="glyphicon glyphicon-remove-circle"></i></td>
+                <td><img src="/<%= cart.products[0].url_img %>" alt=""></td>
+                <td class="texto mt"><%= cart.products[0].texto %></td>
+                <td class="tipo mt"><%= cart.products[0].tipo %></td>
+                <td class="precio mt">20€</td>
+                <td class="cantidad mt">3</td>
+                <td class="pro-to mt">60€</td>
+            </tr>
+        </table>
+        <p>Subtotal: <span>400</span><span id="euros">€</span></p>
+        <a id="volver" href="/tipo">Comprar +</a>
+        <a href="#" id="pagar">Pagar</a>
+    </div>
+</section>
+
+
+

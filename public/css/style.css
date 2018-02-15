@@ -342,3 +342,111 @@ section#sign div#img-sign{
 }
 
 /* SIGNUP */
+
+/* CART */
+
+section#cart{
+  padding-bottom: 40px;
+}
+
+section#cart a#volver{
+  background: #333333;
+}
+
+section#cart a#pagar{
+  background: #44b6eb;
+  float: right
+}
+
+section#cart a{
+  color: #fff;
+  padding: 7px 35px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+  margin-top: 30px;
+}
+
+section#cart h1 {
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 60px;
+}
+
+section#cart h1:before {
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#cart p{
+  text-align: right;
+  margin-right: 10px;
+  font-family: 'Roboto Slab', serif;
+  color: #a2a2a2;
+}
+
+section#cart span{
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+}
+
+section#cart table tr{
+  text-align: center; 
+}
+
+section#cart table tr:last-child{
+  border-bottom: 1px solid #ddd;
+}
+
+section#cart table tr:first-child{
+  border-bottom: 2px solid #ddd;
+  
+}
+
+section#cart table th{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #b7b7b7;
+}
+
+section#cart table tr td{
+height: 50px;
+vertical-align: middle;
+}
+
+section#cart table tr td i{
+  color: #44b6eb;
+  font-size: 35px;
+}
+
+section#cart table tr td img{
+  width: 70px;
+  height: 70px;
+}
+
+section#cart table tr td.mt{
+  font-family: 'maven_proregular';
+  color: #636363;
+}
+
+section#cart table tr td.pro-to{
+  color: #44b6eb;
+}
+
+/* CART */
