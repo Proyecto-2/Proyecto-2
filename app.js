@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
@@ -12,8 +13,7 @@ const flash = require("connect-flash");
 const passportConfig = require('./passport');
 const LocalStrategy = require("passport-local").Strategy;
 
-
-mongoose.connect("mongodb://localhost:27017/project2").then(() => console.log("Conectado"));
+mongoose.connect(process.env.dbURL).then(() => console.log(`conectado a ${process.env.dbURL}`));
 
 const index = require('./routes/index');
 const users = require('./routes/users');
