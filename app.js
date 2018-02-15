@@ -28,7 +28,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', "layouts/main-layout")
+app.set('layout', "layouts/main-layout");
 app.use(expressLayouts);
 
 // uncomment after placing your favicon in /public

@@ -1,3 +1,4 @@
+// import { ObjectId } from '../../../../../Library/Caches/typescript/2.6/node_modules/@types/mongodb/node_modules/@types/bson';
 const express = require('express');
 const Cart = require('../models/Cart');
 const multer = require('multer');
@@ -5,6 +6,8 @@ const upload = multer({ dest: __dirname + '/../uploads' });
 const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
+
+var cartId;
 
 const ensureLoggedIn = (redirect_url) => {
   return (req, res, next) => {
@@ -23,9 +26,9 @@ router.get('/tipo', ensureLoggedIn('/login'), (req, res) => {
 
 router.get('/generico', (req, res, next) => {
 
-    Product.find({}, (err, products) => {
-        res.render('generico', { products: products });
-    })
+  Product.find({}, (err, products) => {
+    res.render('generico', { products: products });
+  })
 });
 
 
@@ -42,15 +45,15 @@ router.get('/personalizado', ensureLoggedIn('/login'), function (req, res, next)
 });
 
 router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img')], (req, res) => {
-  console.log('entro aqui 1')
+  
   const url_img = req.file.filename;
   const texto = req.body.texto;
-  
+
   const newProd = new Product({
     url_img,
     texto
   });
-  console.log("entra aqui")
+
   res.render('personalizado', { object: newProd, title: 'Personalizado' })
 })
 
@@ -61,8 +64,7 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   const all = JSON.parse(req.body.all.toString());
   const url_img = all.url_img;
   const texto = all.texto;
-  var cartId
-  
+
   const newProd = new Product({
     tipo,
     cantidad,
@@ -75,34 +77,50 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   })
 
   newCart.save().then((cart) => {
-    cartId = cart._id
+    cartId = cart._id;
   })
-  
+
   newProd.save().then((savedProduct) => {
     var productId = savedProduct._id
 
-      Cart.findByIdAndUpdate(cartId, 
-        { $push: { products: savedProduct._id }},
-        { 'new': true })
-     .then((mycart) => console.log(mycart))
-     
-    })
+    Cart.findByIdAndUpdate(cartId,
+      { $push: { products: savedProduct._id } },
+      { 'new': true })
+      .then((mycart) => {
+        res.redirect('/cart')
+      })
   })
-
+})
+// console.log(mycart)
 // Carrito
 
-router.get('/cart', ensureLoggedIn('/login'), function (req, res, next) {
-  res.render('cart', { object: undefined, title: 'cart' });
+
+router.get("/cart", (req, res, next) => {
+  Cart.findById(cartId).populate('products')
+  .then(cart => {
+    console.log("cart", cart)
+    res.render("cart", {cart : cart});
+  });
 });
 
+
+
+// router.get('/cart', ensureLoggedIn('/login'), function (req, res, next) {
+//   Cart.findOne({ _id: objectId }).then((cart) => {
+
+//     Cart.find({ proudctobjectId }).then((err, tweets) => {
+//       res.render("/cart", {
+//         tipo,
+//         url_img,
+//         texto
+//       });
+//     });
+//   });
+//   res.render('cart', { object: undefined, title: 'cart' });
+// });
+
 router.post('/:id', (req, res, next) => {
-    const productId = req.params.id;
-  });
-
-
-
-
-
-
+  const productId = req.params.id;
+});
 
 module.exports = router;
