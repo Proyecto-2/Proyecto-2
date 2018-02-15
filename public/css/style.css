@@ -62,8 +62,14 @@ nav ul.navbar-right li span#cart{
   display: inline-block;
 }
 
-nav ul.navbar-right li span#cart i{
+nav ul.navbar-right li i{
   font-size: 20px;
+  cursor: pointer;
+  margin-top: -4px;
+}
+
+nav ul.navbar-right li span#cart i:hover{
+  color: #44b6ea;
 }
 
 .nav>li>a:focus, .nav>li>a:hover{
@@ -163,9 +169,27 @@ section#home div#cont a{
 
 /* PERSONALIZADO */
 
+section#personalizado h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+section#personalizado h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
 section#personalizado div#mockup{
   position: relative;
-  background: #dcdcdc;
+  padding-left: 0;
 }
 
 section#personalizado div#mockup div#img-up{
@@ -182,22 +206,78 @@ section#personalizado div#create-comp div.form-group{
   margin-bottom: 0;
 }
 
+section#personalizado div#create-comp div.form-group.lab{
+  margin-bottom: 20px;
+}
+
 section#personalizado div#create-comp label{
-  font-weight: lighter;
+  font-family: 'Roboto Slab', serif;
+  font-size: 12px;
   letter-spacing: 1.5px;
-  color: #24b0ca;
-  margin-bottom: 25px;
+  color: #44b6eb;
+  margin-bottom: 10px;
+}
+
+section#personalizado div#create-comp textarea{
+  padding: 10px 20px 0;
+}
+
+section#personalizado div#create-comp label.lab-save{
+  margin-bottom: 10px;
+  display: block;
+  margin-right: 30px;
+}
+
+section#personalizado div#create-comp label.anadir{
+  display: block;
+}
+
+section#personalizado div#create-comp div.añadir input{
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  text-align: center;
+}
+
+section#personalizado div#create-comp button.cart{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 40px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+}
+
+section#personalizado div#create-comp select{
+  margin-bottom: 20px;
+}
+
+section#personalizado div#create-comp button.save{
+  color: #44b6eb;
+  padding: 7px 35px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: 1px solid #44b6eb;
 }
 
 section#personalizado div#create-comp input[type="file"]{
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 12px;
+  color: #b9b9b9;
 }
 
 section#personalizado div#create-comp textarea{
   width: 100%;
   border: 1px solid #dcdcdc;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 4px;
 }
 
@@ -433,6 +513,11 @@ vertical-align: middle;
 section#cart table tr td i{
   color: #44b6eb;
   font-size: 35px;
+  margin-top: 7px;
+}
+
+section#cart table tr td i:hover{
+  color: #343435;
 }
 
 section#cart table tr td img{
