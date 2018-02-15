@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-const Create = require('../models/Create');
+const Create = require('../models/Cart');
 
 const multer = require('multer');
 const upload = multer({ dest: __dirname + '/../uploads' });
@@ -37,9 +37,9 @@ router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img'
   const url_img = req.file.filename;
   const texto = req.body.texto;
 
-  const newProd = new Create({
+  const newProd = new Product({
     url_img,
-    texto,
+    texto
   });
   res.render('personalizado', { object: newProd, title: 'Personalizado' })
 })
@@ -49,8 +49,8 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
   const all = JSON.parse(req.body.all.toString());
-  const url_img_saved = all.url_img;
-  const texto_saved = all.texto;
+  const url_img = all.url_img;
+  const texto = all.texto;
   // const url = req.body.url;
   // const text = req.body.text;
   // { _id: 5a844be754a66016d48539e7,  url_img: '7d77c09e38910167d677fce4b79bad81',  texto: 'fgfg' }
@@ -59,11 +59,11 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   console.log(all.url_img);
   console.log("text " + all.texto);
 
-  const newProd = new Create({
+  const newProd = new Product({
     tipo,
     cantidad,
-    url_img_saved,
-    texto_saved
+    url_img,
+    texto
   });
 
   newProd.save((err) => {
@@ -72,6 +72,7 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
         errorMessage: "Something went wrong when signing up"
       });
     } else {
+      
       res.redirect("/cart");
     }
   })

@@ -5,7 +5,8 @@ const userSchema = new Schema({
     name: String,
     username: String,
     password: String,
-    mail: String
+    mail: String,
+    arrayCart: []
 }, {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
     });

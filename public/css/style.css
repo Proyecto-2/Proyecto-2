@@ -107,7 +107,7 @@ footer h3{
 
 section#home{
   height: 80vh;
-  background: url("../bg.png")center center no-repeat;
+  background: url("../bg.pn")center center no-repeat;
   background-size: cover;
   position: relative;
   margin-top: 20px;
@@ -270,10 +270,75 @@ section#login div#form-login p a{
 }
 
 section#login div#img-login{
-  background: url("../bg-log.png") center center no-repeat;
+  background: url("../bg-log.pn") center center no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 80vh;
 }
 
-
 /* LOGIN */
+
+/* SIGNUP */
+
+section#sign{
+  margin-top: 20px;
+}
+
+section#sign div#form-sign{
+  padding: 0!important;
+  text-align: center;
+}
+
+section#sign div#form-sign h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+section#sign div#form-sign h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#sign div#form-sign div.form-group{
+  padding-right: 30px;
+  padding-left: 0;
+}
+
+section#sign div#form-sign input{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  padding: 20px;
+}
+
+section#sign div#form-sign button{
+  background: #44b6eb;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+section#sign div#img-sign{
+  background: url("../bg-sign.pn") center center no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+/* SIGNUP */

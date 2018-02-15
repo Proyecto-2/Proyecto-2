@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
+    name: String,
     url_img: String,
     tipo: { type: String,
         enum: ['Rock', 'Metal', 'Pop']
