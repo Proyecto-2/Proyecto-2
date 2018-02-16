@@ -37,7 +37,7 @@ const prod = [
         tipo: "Desnatada",
         precio: 1.5,
         cantidad: 2,
-        texto: "SOY LA LECHE Y LA CAÑA"
+        texto: "SOY LA LECHE Y LO SABES"
     },
     {
         name: "leche",
@@ -45,7 +45,7 @@ const prod = [
         tipo: "Desnatada",
         precio: 1.5,
         cantidad: 2,
-        texto: "SOY LA LECHE Y LA CAÑA"
+        texto: "YO DOY LECHES COMO PANES"
     },
     {
         name: "leche",
@@ -53,7 +53,7 @@ const prod = [
         tipo: "Desnatada",
         precio: 1.5,
         cantidad: 2,
-        texto: "SOY LA LECHE Y LA CAÑA"
+        texto: "SOY LA LECHE"
     }
 ]
 
