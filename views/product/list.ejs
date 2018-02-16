@@ -1,15 +1,16 @@
-<% products.forEach((p) => { %>
-    <section id="list" class="container">
+<section id="list" class="container">
     <div class="row">
-    <div class="col-md-4">
-        <article>
-        <a href="/product/<%= p._id %>">
-            <img src="<%= p.url_img %>">
-            <h2><%= p.texto %></h2>
-            <span>1,5€</span>
-        </a>
-    </article>
+        <h1>Genérico</h1>
+    <% products.forEach((p) => { %>
+        <div class="col-md-4">
+            <article>
+                <a href="/product/<%= p._id %>">
+                    <img src="<%= p.url_img %>">
+                    <h2><%= p.texto %></h2>
+                    <span>1.5€</span>
+                </a>
+            </article>
+        </div>
+    <%  }) %>
     </div>
-</div>
 </section>
-<%  }) %>
