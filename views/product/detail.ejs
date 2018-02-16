@@ -8,17 +8,18 @@
             <img src="<%=product.url_img%>">
         </div>
         <div class="col-md-6" id="detail_text">
-            <div>
-                <input type="number" min="1">
-                <button id="anadir_Carrito">Añadir al carrito</button>
+            <p><%=product.texto%></p>
+            <div class="form-group">
+                <input class="form-control" type="number" value="1">
             </div>
-            <div class="btn-group">
+            <div class="form-group"></div>
                 <select class="form-control" id="desplegable-" name="tipo">
                     <option>Entera</option>
                     <option>Semidesnatada</option>
                     <option>Desnatada</option>
                 </select>
             </div>
+            <button id="anadir_Carrito">Añadir al carrito</button>
         </div>
     </div>
 </section>
