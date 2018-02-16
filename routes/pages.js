@@ -21,20 +21,16 @@ router.get('/tipo', ensureLoggedIn('/login'), (req, res) => {
   res.render('tipo', { title: 'Tipo' });
 });
 
-router.get('/generico', (req, res, next) => {
-
+router.get('/product', (req, res, next) => { 
     Product.find({}, (err, products) => {
-        res.render('generico', { products: products });
+        res.render('product/list', { products: products });
     })
 });
 
-router.post('/:id', (req, res, next) => {
-    const productId = req.params.id;
-  });
 
-router.get('/previsualizacion', (req, res, next) => {
-    Product.find({}, (err, products) => {
-        res.render('previsualizacion', { products: products });
+router.get('/product/:id', (req, res, next) => {
+  Product.findById(req.params.id, (err, product) => {
+        res.render('product/detail', { product: product });
     })
 });
 

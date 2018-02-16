@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const Auth = require("../models/User");
 const Prod = require("../models/Product");
-const Create = require("../models/Create");
+// const Create = require("../models/Create");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-mongoose.connect("mongodb://localhost/project2")
+mongoose.connect("mongodb://admin:admin@ds237868.mlab.com:37868/proyecto2")
     .then(() => console.log("Conectado"))
     .catch(e => console.log(e));
 
@@ -54,7 +54,7 @@ const creat = [
 
 Auth.collection.drop();
 Prod.collection.drop();
-Create.collection.drop();
+// Create.collection.drop();
 
 
 
@@ -78,16 +78,16 @@ prod.forEach(c => {
     })
 });
 
-prod.forEach(c => {
-    let cr = new Create(c);
-    cr.save((err, creat) => {
-        if (err) {
-            throw err;
-        }
-        console.log(`Created ${creat.texto}`);
-        mongoose.disconnect();
-    })
-})
-    .catch(e => {
-        console.log(e)
-    })
+// prod.forEach(c => {
+//     let cr = new Create(c);
+//     cr.save((err, creat) => {
+//         if (err) {
+//             throw err;
+//         }
+//         console.log(`Created ${creat.texto}`);
+//         mongoose.disconnect();
+//     })
+// })
+    // .catch(e => {
+    //     console.log(e)
+    // })

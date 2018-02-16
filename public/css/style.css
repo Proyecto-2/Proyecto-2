@@ -342,3 +342,10 @@ section#sign div#img-sign{
 }
 
 /* SIGNUP */
+
+#detail_img{
+
+  border-style: solid;
+  padding: 10%;
+  background-color: gray;
+}
