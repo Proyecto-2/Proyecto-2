@@ -5,7 +5,7 @@ const productSchema = new Schema({
     name: String,
     url_img: String,
     tipo: { type: String,
-        enum: ['Rock', 'Metal', 'Pop']
+        enum: ['Entera', 'Semidesnatada', 'Desnatada']
     },
     precio: Number,
     cantidad: Number,

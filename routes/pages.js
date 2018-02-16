@@ -41,6 +41,16 @@ router.get('/previsualizacion', (req, res, next) => {
 // Personalizado
 
 router.get('/personalizado', ensureLoggedIn('/login'), function (req, res, next) {
+  const userID = res.locals.user._id
+  
+  const newCart = new Cart({
+    ownerId: userID
+  })
+
+  newCart.save().then((cart) => {
+    cartId = cart._id;
+  })
+
   res.render('personalizado', { object: undefined, title: 'Personalizando' });
 });
 
@@ -58,6 +68,7 @@ router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img'
 })
 
 router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
+  console.log('entro en la ruta post de cart')
   const userID = res.locals.user._id
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
@@ -74,23 +85,12 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
     texto
   });
 
-  const newCart = new Cart({
-    ownerId: userID
-  })
-
-  newCart.save().then((cart) => {
-    cartId = cart._id;
-  })
-
   newProd.save().then((savedProduct) => {
     var productId = savedProduct._id
-
+    console.log('entro a buscar el caarito')
     Cart.findByIdAndUpdate(cartId,
       { $push: { products: savedProduct._id } },
-      { 'new': true })
-      .then((mycart) => {
-        res.redirect('/cart')
-      })
+      { 'new': true }).then(res.render('personalizado', { object: undefined, title: 'Personalizando' }));
   })
 })
 // console.log(mycart)
