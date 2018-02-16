@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
@@ -12,8 +13,10 @@ const flash = require("connect-flash");
 const passportConfig = require('./passport');
 const LocalStrategy = require("passport-local").Strategy;
 
+const localDB = "mongodb://localhost/project2";
+const onlineDB = process.env.dbURL;
 
-mongoose.connect("mongodb://localhost:27017/project2").then(() => console.log("Conectado"));
+mongoose.connect(localDB).then(() => console.log(`conectado a ${process.env.dbURL}`));
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -25,7 +28,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', "layouts/main-layout")
+app.set('layout', "layouts/main-layout");
 app.use(expressLayouts);
 
 // uncomment after placing your favicon in /public
