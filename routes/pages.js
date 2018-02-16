@@ -67,6 +67,7 @@ router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img'
 
 router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   console.log('entro en la ruta post de cart')
+  console.log(req.body)
   const userID = res.locals.user._id
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
@@ -74,6 +75,7 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   const all = JSON.parse(req.body.all.toString());
   const url_img = all.url_img;
   const texto = all.texto;
+  console.log(cantidad)
 
   const newProd = new Product({
     tipo,
@@ -91,6 +93,8 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
       { 'new': true }).then(res.render('personalizado', { object: undefined, title: 'Personalizando' }));
   })
 })
+
+
 
 // Carrito
 

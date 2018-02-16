@@ -5,17 +5,19 @@
             <img src="/<%=product.url_img%>">
         </div>
         <div class="col-md-6" id="detail_text">
-            <div>
-                <input type="number" min="1">
-                <button id="anadir_Carrito">Añadir al carrito</button>
-            </div>
-            <div class="btn-group">
-                <select class="form-control" id="desplegable-" name="tipo">
-                    <option>Rock</option>
-                    <option>Metal</option>
-                    <option>Pop</option>
-                </select>
-            </div>
+            <form action="/cart" method="post">
+                <div>
+                    <input type="number" min="1" name="cantidad">
+                    <button>Añadir al carrito</button>
+                </div>
+                <div class="btn-group">
+                    <select class="form-control" id="desplegable-" name="tipo">
+                        <option>Rock</option>
+                        <option>Metal</option>
+                        <option>Pop</option>
+                    </select>
+                </div>
+            </form>
         </div>
     </div>
 </section>
