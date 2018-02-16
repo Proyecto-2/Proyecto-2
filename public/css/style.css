@@ -33,6 +33,9 @@ body {
   text-decoration: none!important;
 }
 
+img{
+  max-width: 100%;
+}
 
 /* section{
   padding-top: 70px;
@@ -112,7 +115,7 @@ footer h3{
 
 section#home{
   height: 80vh;
-  background: url("../bg.pn")center center no-repeat;
+  background: url("../bg.png")center center no-repeat;
   background-size: cover;
   position: relative;
   margin-top: 20px;
@@ -251,7 +254,22 @@ section#personalizado div#create-comp div.añadir input{
 }
 
 section#personalizado div#create-comp button.cart{
-  background: #44b6eb;
+  background: #585858;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: -3px;
+  margin-right: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+}
+
+section#personalizado div#create-comp a{
+  background: #44b6ea;
   color: #fff;
   padding: 7px 35px;
   margin-top: 40px;
@@ -362,7 +380,7 @@ section#login div#form-login p a{
 }
 
 section#login div#img-login{
-  background: url("../bg-log.pn") center center no-repeat;
+  background: url("../bg-log.png") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
@@ -428,7 +446,7 @@ section#sign div#form-sign button{
 }
 
 section#sign div#img-sign{
-  background: url("../bg-sign.pn") center center no-repeat;
+  background: url("../bg-sign.png") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
@@ -597,7 +615,64 @@ section#tipo article i{
 
 /* TIPO */
 
-/* CSS Generico */
+/* LIST */
+
+section#list{
+
+}
+
+
+section#list h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+section#list h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#list h2{
+  font-family: 'Roboto Slab', serif;
+  color: #585858;
+  font-size: 19px;
+  text-align: center;
+}
+
+section#list div.col-md-4{
+  overflow: hidden;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+section#list div.col-md-4:last-child{
+  display: none;
+}
+
+section#list div.col-md-4 span{
+  position: absolute;
+  font-size: 25px;
+  color: #fff;
+  top: 22px;
+  right: 40px;
+  background: #2abbff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+
+/* LIST */
+
+/* DETAIL */
 
 section#detail h1 {
   font-family: 'Roboto Slab', serif;
@@ -607,6 +682,15 @@ section#detail h1 {
   margin-top: 0;
   margin-bottom: 80px;
   font-size: 36px;
+}
+
+section#detail h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
 }
 
 section#detail button {
@@ -621,6 +705,31 @@ section#detail button {
   border: 1px solid #44b6eb;
 }
 
+section#detail div.atras{
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+section#detail div.img{
+  padding-left: 0;
+  margin-bottom: 50px;
+}
+
+section#detail div.atras a{
+  background: #585858;
+  color: #fff;
+  padding: 7px 35px;
+  margin-top: -3px;
+  margin-right: 20px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  border: none!important;
+}
+
 section#detail label {
   display: inline-block;
   max-width: 100%;
@@ -628,7 +737,26 @@ section#detail label {
   font-weight: 700;
 }
 
-section#detail button#anadirCarrito {
+section#detail input{
+  border-radius: 5px;
+  border: 1px solid #c7c7c7;
+  text-align: center;
+  width: 235px;
+}
+
+section#detail select{
+  border: 1px solid #c7c7c7;
+  width: 235px;
+}
+
+section#detail p{
+  font-family: 'Roboto Slab', serif;
+  color: #585858;
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+section#detail button {
   background: #44b6eb;
   color: #fff;
   padding: 7px 35px;
@@ -640,24 +768,7 @@ section#detail button#anadirCarrito {
   font-weight: 400;
   letter-spacing: 1.5px;
   border: none!important;
-  margin-left: 10%;
+  margin-left: 15px;  
 }
 
-.form-control {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
+/* DETAIL */

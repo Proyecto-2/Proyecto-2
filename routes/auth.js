@@ -10,6 +10,7 @@ authRoutes.get("/signup", (req, res, next) => {
 });
 
 authRoutes.post("/signup", (req, res, next) => {
+  
     const username = req.body.username;
     const password = req.body.password;
     const mail = req.body.mail;
@@ -52,13 +53,13 @@ authRoutes.get("/login", (req, res, next) => {
 });
 
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/tipo",
+  successRedirect: "/",
   failureRedirect: "/login"
 }));
 
 authRoutes.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/login");
 });
 
 module.exports = authRoutes;

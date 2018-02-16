@@ -6,7 +6,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
 
-var cartId;
+
 
 const ensureLoggedIn = (redirect_url) => {
   return (req, res, next) => {
@@ -23,37 +23,27 @@ router.get('/tipo', ensureLoggedIn('/login'), (req, res) => {
   res.render('tipo', { title: 'Tipo' });
 });
 
-router.get('/product', (req, res, next) => { 
-    Product.find({}, (err, products) => {
-        res.render('product/list', { products: products });
-    })
+router.get('/product', ensureLoggedIn('/login'), (req, res, next) => {
+  Product.find({}, (err, products) => {
+    res.render('product/list', { products: products.slice(0, 5) });
+  })
 });
 
 
-router.get('/product/:id', (req, res, next) => {
+router.get('/product/:id', ensureLoggedIn('/login'), (req, res, next) => {
   Product.findById(req.params.id, (err, product) => {
-        res.render('product/detail', { product: product });
-    })
+    res.render('product/detail', { product: product });
+  })
 });
 
 // Personalizado
 
 router.get('/personalizado', ensureLoggedIn('/login'), function (req, res, next) {
-  const userID = res.locals.user._id
-  
-  const newCart = new Cart({
-    ownerId: userID
-  })
-
-  newCart.save().then((cart) => {
-    cartId = cart._id;
-  })
-
   res.render('personalizado', { object: undefined, title: 'Personalizando' });
 });
 
 router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img')], (req, res) => {
-  
+
   const url_img = req.file.filename;
   const texto = req.body.texto;
 
@@ -99,11 +89,13 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
 // Carrito
 
 router.get("/cart", (req, res, next) => {
+  console.log('el id de mi cart')
+  console.log(cartId)
   Cart.findById(cartId).populate('products')
-  .then(cart => {
-    console.log("cart", cart)
-    res.render("cart", {cart : cart});
-  });
+    .then(cart => {
+      console.log("cart", cart)
+      res.render("cart", { cart: cart });
+    });
 });
 
 router.post('/:id', (req, res, next) => {

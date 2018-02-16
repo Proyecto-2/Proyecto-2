@@ -7,7 +7,7 @@ const Cart = require("../models/Cart");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-mongoose.connect("mongodb://admin:admin@ds237868.mlab.com:37868/proyecto2")
+mongoose.connect("mongodb://localhost/project2")
     .then(() => console.log("Conectado"))
     .catch(e => console.log(e));
 
@@ -24,37 +24,51 @@ const auth = [
 
 const prod = [
     {
-        url_img: "https://misanimales.com/wp-content/uploads/2016/10/crecen-los-gatos.jpg",
-        tipo: "Metal",
-        precio: "1.50",
-        texto: "Esto es una prueba"
+        name: "leche",
+        url_img: "/uno.png",
+        tipo: "Desnatada",
+        precio: 1.5,
+        cantidad: 2,
+        texto: "SOY LA LECHE Y LA CAÑA"
     },
     {
-        url_img: "https://www.positivos.com/tienda/modules/designer//uploaded/Productos/nuevas_gorras/dg-designer-978fce5b149746273013053180710056461.jpg",
-        tipo: "Pop",
-        precio: "3.50",
-        texto: "Esto es una gorra"
+        name: "leche",
+        url_img: "/dos.png",
+        tipo: "Desnatada",
+        precio: 1.5,
+        cantidad: 2,
+        texto: "SOY LA LECHE Y LA CAÑA"
     },
     {
-        url_img: "http://www.ikea.com/es/es/images/products/lejaren-toalla-de-bano-beige__0516958_PE640557_S4.JPG",
-        tipo: "Rock",
-        precio: "5",
-        texto: "Esto es una toalla"
+        name: "leche",
+        url_img: "/tres.png",
+        tipo: "Desnatada",
+        precio: 1.5,
+        cantidad: 2,
+        texto: "SOY LA LECHE Y LA CAÑA"
     },
-]
-
-
-
-const cart = [
     {
-        url_img: "https://misanimales.com/wp-content/uploads/2016/10/crecen-los-gatos.jpg",
-        texto: "Esto es una prueba"
+        name: "leche",
+        url_img: "/cuatro.png",
+        tipo: "Desnatada",
+        precio: 1.5,
+        cantidad: 2,
+        texto: "SOY LA LECHE Y LA CAÑA"
     }
 ]
 
+
+
+// const cart = [
+//     {
+//         url_img: "https://misanimales.com/wp-content/uploads/2016/10/crecen-los-gatos.jpg",
+//         texto: "Esto es una prueba"
+//     }
+// ]
+
 Auth.collection.drop();
 Prod.collection.drop();
-Cart.collection.drop();
+// Cart.collection.drop();
 
 
 
@@ -75,16 +89,17 @@ prod.forEach(c => {
             throw err;
         }
         console.log(`Product saved ${prod.texto}`);
+        mongoose.disconnect();
     })
 });
 
-prod.forEach(c => {
-    let cr = new Cart(c);
-    cr.save((err, cart) => {
-        if (err) {
-            throw err;
-        }
-        console.log(`Created ${cart.texto}`);
-        mongoose.disconnect();
-    })
-})
+// prod.forEach(c => {
+//     let cr = new Cart(c);
+//     cr.save((err, cart) => {
+//         if (err) {
+//             throw err;
+//         }
+//         console.log(`Created ${cart.texto}`);
+//         mongoose.disconnect();
+//     })
+// })
