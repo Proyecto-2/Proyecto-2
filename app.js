@@ -16,7 +16,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const localDB = "mongodb://localhost/project2";
 const onlineDB = process.env.dbURL;
 
-mongoose.connect(localDB).then(() => console.log(`conectado a ${process.env.dbURL}`));
+mongoose.connect(onlineDB).then(() => console.log(`conectado a ${process.env.dbURL}`));
 
 const index = require('./routes/index');
 const users = require('./routes/users');

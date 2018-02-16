@@ -85,9 +85,9 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
 
   newProd.save().then((savedProduct) => {
     var productId = savedProduct._id
-    console.log('entro a buscar el caarito')
+    console.log('entro a buscar el carrito')
     Cart.findByIdAndUpdate(cartId,
-      { $push: { products: savedProduct._id } },
+      { $push: { products: productId } },
       { 'new': true }).then(res.render('personalizado', { object: undefined, title: 'Personalizando' }));
   })
 })
