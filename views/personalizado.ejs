@@ -3,7 +3,7 @@
         <h1>Personaliza</h1>
         <div id="mockup" class="col-md-6">    
             <div class>
-                <img src="/bg-per.png" alt="">
+                <img src="/bg-per.pn" alt="">
             </div>   
             <% if (typeof(object) != 'undefined') {%>
                 <div id='img-up'>
@@ -41,7 +41,7 @@
                     <label class="anadir"> 5. Añade la cantidad</label>
                     <input type="number" value=0 name="cantidad">
                 </div>
-                <input type="text" value="1.50" hidden>
+                <input type="text" name="precio" value=1.5 hidden>
                 <input type="text" name="all" value="<%= JSON.stringify(object) %>" hidden>
                 <button type="submit" class="btn cart">Añadir al carrito</button>
             </form>

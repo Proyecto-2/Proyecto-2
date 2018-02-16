@@ -8,6 +8,7 @@ const productSchema = new Schema({
         enum: ['Rock', 'Metal', 'Pop']
     },
     precio: Number,
+    cantidad: Number,
     texto: String
 }, {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

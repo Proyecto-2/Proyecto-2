@@ -61,6 +61,7 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   const userID = res.locals.user._id
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
+  const precio = req.body.precio;
   const all = JSON.parse(req.body.all.toString());
   const url_img = all.url_img;
   const texto = all.texto;
@@ -68,6 +69,7 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
   const newProd = new Product({
     tipo,
     cantidad,
+    precio,
     url_img,
     texto
   });

@@ -112,7 +112,7 @@ footer h3{
 
 section#home{
   height: 80vh;
-  background: url("../bg.png")center center no-repeat;
+  background: url("../bg.pn")center center no-repeat;
   background-size: cover;
   position: relative;
   margin-top: 20px;
@@ -362,7 +362,7 @@ section#login div#form-login p a{
 }
 
 section#login div#img-login{
-  background: url("../bg-log.png") center center no-repeat;
+  background: url("../bg-log.pn") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
@@ -428,7 +428,7 @@ section#sign div#form-sign button{
 }
 
 section#sign div#img-sign{
-  background: url("../bg-sign.png") center center no-repeat;
+  background: url("../bg-sign.pn") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
@@ -547,3 +547,50 @@ section#cart table tr td.pro-to{
 }
 
 /* CART */
+
+/* TIPO */
+
+section#tipo{
+  height: 70vh;
+  clear: both;
+}
+
+section#tipo h1{
+  font-family: 'Roboto Slab', serif;
+  color: #44b6eb;
+  text-align: left;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+section#tipo h1:before{
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+  margin-top: 50px;
+  width: 50px;
+  border-bottom: solid 4px #44b6eb;
+}
+
+section#tipo article{
+  text-align: center;
+  border: 2px solid #ddd;
+  height: 300px;
+  padding: 40px;
+}
+
+section#tipo article h2{
+  font-family: 'Roboto Slab', serif;
+  color: #585858;
+}
+
+section#tipo article i{
+  color: #44b6eb;
+  font-size: 30px;
+  border: 5px solid #44b6eb;
+  border-radius: 50%;
+  padding: 30px;
+}
+
+/* TIPO */
