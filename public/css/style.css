@@ -30,7 +30,6 @@ body {
 }
 
 *{
-  font-family: 'Open Sans', sans-serif;
   text-decoration: none!important;
 }
 
@@ -113,7 +112,7 @@ footer h3{
 
 section#home{
   height: 80vh;
-  background: url("../bg.pn")center center no-repeat;
+  background: url("../bg.png")center center no-repeat;
   background-size: cover;
   position: relative;
   margin-top: 20px;
@@ -194,12 +193,25 @@ section#personalizado div#mockup{
 
 section#personalizado div#mockup div#img-up{
   position: absolute;
-  top: 190px;
-  left: 228px;
+  top: 180px;
+  left: 222px;
 }
 
 section#personalizado div#mockup div#img-up img{
-  width: 100px;
+  width: 110px;
+}
+
+section#personalizado div#mockup p{
+  position: absolute;
+  top: 297px;
+  left: 222px;
+  width: 110px;
+  font-family: 'Roboto Slab', serif;
+  color: #585858;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  font-weight: 700;
 }
 
 section#personalizado div#create-comp div.form-group{
@@ -350,7 +362,7 @@ section#login div#form-login p a{
 }
 
 section#login div#img-login{
-  background: url("../bg-log.pn") center center no-repeat;
+  background: url("../bg-log.png") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
@@ -416,7 +428,7 @@ section#sign div#form-sign button{
 }
 
 section#sign div#img-sign{
-  background: url("../bg-sign.pn") center center no-repeat;
+  background: url("../bg-sign.png") center center no-repeat;
   background-size: cover;
   height: 80vh;
 }
