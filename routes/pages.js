@@ -1,4 +1,3 @@
-// import { ObjectId } from '../../../../../Library/Caches/typescript/2.6/node_modules/@types/mongodb/node_modules/@types/bson';
 const express = require('express');
 const Cart = require('../models/Cart');
 const multer = require('multer');
@@ -93,9 +92,8 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
       { 'new': true }).then(res.render('personalizado', { object: undefined, title: 'Personalizando' }));
   })
 })
-// console.log(mycart)
-// Carrito
 
+// Carrito
 
 router.get("/cart", (req, res, next) => {
   Cart.findById(cartId).populate('products')
@@ -104,22 +102,6 @@ router.get("/cart", (req, res, next) => {
     res.render("cart", {cart : cart});
   });
 });
-
-
-
-// router.get('/cart', ensureLoggedIn('/login'), function (req, res, next) {
-//   Cart.findOne({ _id: objectId }).then((cart) => {
-
-//     Cart.find({ proudctobjectId }).then((err, tweets) => {
-//       res.render("/cart", {
-//         tipo,
-//         url_img,
-//         texto
-//       });
-//     });
-//   });
-//   res.render('cart', { object: undefined, title: 'cart' });
-// });
 
 router.post('/:id', (req, res, next) => {
   const productId = req.params.id;
