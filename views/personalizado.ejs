@@ -32,9 +32,9 @@
                 <div class="form-group">
                     <label>4. Tipo de producto</label>
                     <select class="form-control" name="tipo">
-                        <option>Rock</option>
-                        <option>Metal</option>
-                        <option>Pop</option>
+                        <option>Entera</option>
+                        <option>Semidesnatada</option>
+                        <option>Desnatada</option>
                     </select>
                 </div>
                 <div class="añadir form-group">
@@ -43,7 +43,8 @@
                 </div>
                 <input type="text" name="precio" value=1.5 hidden>
                 <input type="text" name="all" value="<%= JSON.stringify(object) %>" hidden>
-                <button type="submit" class="btn cart">Añadir al carrito</button>
+                <button type="submit" class="btn cart">Añadir</button>
+                <a href="/cart">Ir al carrito</a>
             </form>
         </div>
     </div>

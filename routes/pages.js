@@ -1,4 +1,3 @@
-// import { ObjectId } from '../../../../../Library/Caches/typescript/2.6/node_modules/@types/mongodb/node_modules/@types/bson';
 const express = require('express');
 const Cart = require('../models/Cart');
 const multer = require('multer');
@@ -40,6 +39,16 @@ router.get('/product/:id', (req, res, next) => {
 // Personalizado
 
 router.get('/personalizado', ensureLoggedIn('/login'), function (req, res, next) {
+  const userID = res.locals.user._id
+  
+  const newCart = new Cart({
+    ownerId: userID
+  })
+
+  newCart.save().then((cart) => {
+    cartId = cart._id;
+  })
+
   res.render('personalizado', { object: undefined, title: 'Personalizando' });
 });
 
@@ -57,6 +66,7 @@ router.post("/personalizado", [ensureLoggedIn('/login'), upload.single('url_img'
 })
 
 router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
+  console.log('entro en la ruta post de cart')
   const userID = res.locals.user._id
   const tipo = req.body.tipo;
   const cantidad = req.body.cantidad;
@@ -73,28 +83,16 @@ router.post("/cart", ensureLoggedIn('/login'), (req, res) => {
     texto
   });
 
-  const newCart = new Cart({
-    ownerId: userID
-  })
-
-  newCart.save().then((cart) => {
-    cartId = cart._id;
-  })
-
   newProd.save().then((savedProduct) => {
     var productId = savedProduct._id
-
+    console.log('entro a buscar el caarito')
     Cart.findByIdAndUpdate(cartId,
       { $push: { products: savedProduct._id } },
-      { 'new': true })
-      .then((mycart) => {
-        res.redirect('/cart')
-      })
+      { 'new': true }).then(res.render('personalizado', { object: undefined, title: 'Personalizando' }));
   })
 })
-// console.log(mycart)
-// Carrito
 
+// Carrito
 
 router.get("/cart", (req, res, next) => {
   Cart.findById(cartId).populate('products')
@@ -103,22 +101,6 @@ router.get("/cart", (req, res, next) => {
     res.render("cart", {cart : cart});
   });
 });
-
-
-
-// router.get('/cart', ensureLoggedIn('/login'), function (req, res, next) {
-//   Cart.findOne({ _id: objectId }).then((cart) => {
-
-//     Cart.find({ proudctobjectId }).then((err, tweets) => {
-//       res.render("/cart", {
-//         tipo,
-//         url_img,
-//         texto
-//       });
-//     });
-//   });
-//   res.render('cart', { object: undefined, title: 'cart' });
-// });
 
 router.post('/:id', (req, res, next) => {
   const productId = req.params.id;

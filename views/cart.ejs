@@ -11,19 +11,20 @@
                 <th>Cantidad</th>
                 <th>Total</th>
             </tr>
-            
+            <% cart.products.forEach((e) => { %>
             <tr>
                 <td class="mt"><i class="glyphicon glyphicon-remove-circle"></i></td>
-                <td><img src="/<%= cart.products[0].url_img %>" alt=""></td>
-                <td class="texto mt"><%= cart.products[0].texto %></td>
-                <td class="tipo mt"><%= cart.products[0].tipo %></td>
-                <td class="precio mt"><%= cart.products[0].precio %>€</td>
-                <td class="cantidad mt"><%=cart.products[0].cantidad %></td>
-                <td class="pro-to mt"><%=cart.products[0].precio * cart.products[0].cantidad %>€</td>
+                <td><img src="/<%= e.url_img %>" alt=""></td>
+                <td class="texto mt"><%= e.texto %></td>
+                <td class="tipo mt"><%= e.tipo %></td>
+                <td class="precio mt"><%= e.precio %>€</td>
+                <td class="cantidad mt"><%=e.cantidad %></td>
+                <td class="pro-to mt"><%=e.precio * e.cantidad %>€</td>
             </tr>
-          
+        
+            <%  }) %>
         </table>
-        <p>Subtotal: <span><%=cart.products[0].precio * cart.products[0].cantidad %></span><span id="euros">€</span></p>
+        
         <a id="volver" href="/tipo">Comprar +</a>
         <a href="#" id="pagar">Pagar</a>
     </div>
