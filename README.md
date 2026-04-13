@@ -35,12 +35,18 @@ Express web app with EJS views, MongoDB (Mongoose), sessions, Passport (local au
 
 3. Start MongoDB if you use a local database, and ensure the URI in `dbURL` points to the same host, port, and database name you intend to use.
 
+   **macOS (Homebrew):** if Mongo is installed but not running, you may see `ECONNREFUSED` on port 27017. Start it with:
+
+   ```bash
+   brew services start mongodb-community
+   ```
+
 ### Run
 
 | Command        | Description                          |
 |----------------|--------------------------------------|
-| `npm run dev`  | Development server with **nodemon**  |
-| `npm start`    | Production-style run with **node**   |
+| `npm run dev` or `yarn dev` | Development server with **nodemon**  |
+| `npm start` or `yarn start` | Production-style run with **node**   |
 
 By default the server listens on **port 3000** (or the port set in `PORT`).
 
@@ -52,7 +58,7 @@ Sample users and products can be loaded with:
 node bin/seeds.js
 ```
 
-> The seed script uses its own MongoDB URI inside `bin/seeds.js`. Align that URI with your environment if you do not use `mongodb://localhost/project2`.
+The seed script reads **`dbURL`** from `.env` (same as the app), with a fallback to `mongodb://localhost/project2` if unset.
 
 ### Tech stack (high level)
 
@@ -91,12 +97,18 @@ Express, EJS, Mongoose, express-session, connect-mongo, Passport (local strategy
 
 3. Arranca MongoDB si usas base de datos local y comprueba que la URI de `dbURL` coincide con el host, puerto y nombre de base de datos que quieras usar.
 
+   **macOS (Homebrew):** si Mongo está instalado pero no en marcha, puede aparecer `ECONNREFUSED` en el puerto 27017. Arráncalo con:
+
+   ```bash
+   brew services start mongodb-community
+   ```
+
 ### Ejecución
 
 | Comando       | Descripción                                    |
 |---------------|------------------------------------------------|
-| `npm run dev` | Servidor de desarrollo con **nodemon**         |
-| `npm start`   | Ejecución tipo producción con **node**         |
+| `npm run dev` o `yarn dev` | Servidor de desarrollo con **nodemon**         |
+| `npm start` o `yarn start` | Ejecución tipo producción con **node**         |
 
 Por defecto el servidor escucha en el **puerto 3000** (o el definido en `PORT`).
 
@@ -108,7 +120,7 @@ Para cargar usuarios y productos de ejemplo:
 node bin/seeds.js
 ```
 
-> El script de seeds tiene la URI de MongoDB definida en `bin/seeds.js`. Ajusta esa URI a tu entorno si no usas `mongodb://localhost/project2`.
+El script de seeds lee **`dbURL`** del `.env` (igual que la aplicación), con respaldo a `mongodb://localhost/project2` si no está definida.
 
 ### Stack tecnológico (resumen)
 

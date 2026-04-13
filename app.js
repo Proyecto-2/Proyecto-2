@@ -9,15 +9,18 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts')
 const mongoose = require("mongoose");
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const { MongoStore } = require("connect-mongo");
 const flash = require("connect-flash");
 const passportConfig = require('./passport');
 const LocalStrategy = require("passport-local").Strategy;
 
-const localDB = "mongodb://localhost/project2";
-const onlineDB = process.env.dbURL;
+const mongoUri = process.env.dbURL || "mongodb://localhost/project2";
 
-mongoose.connect(onlineDB).then(() => console.log(`conectado a ${process.env.dbURL}`));
+const clientPromise = mongoose
+  .connect(mongoUri)
+  .then(() => mongoose.connection.getClient());
+
+clientPromise.then(() => console.log(`conectado a ${mongoUri}`));
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -44,8 +47,8 @@ app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
+  store: MongoStore.create({
+    clientPromise,
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
